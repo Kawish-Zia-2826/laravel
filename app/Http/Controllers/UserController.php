@@ -13,7 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::with('post')->get();
+        // $user = User::with('post')->get();
+
+        $user = User::all('name'); 
         return $user;
     }
 

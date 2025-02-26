@@ -19,4 +19,8 @@ class User extends Model
                 $u->post()->delete();
         });
     }
+
+    public function scopeActive($q,$c){
+        return $q->where('name',$c);
+    }
 }

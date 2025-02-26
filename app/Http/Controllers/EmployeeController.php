@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Support\Str;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Models\Scopes\UserScope;
 
-class PostController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $post   = Post::withWhereHas('user',function($q){
-            $q->Active('Keven Dare');
-        })->get();
-        return $post;
+        return Employee::withOutGlobalScope('city')->get();
     }
 
     /**
@@ -24,14 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $post_title = 'This is another  new post';
-        Post::create([
-            'title'=> $post_title,
-            'description'=> 'This is a new post description',
-            'user_id'=> 2,
-            'created_at'=> now(),
-            'updated_at'=> now()
-        ]);
+        //
     }
 
     /**

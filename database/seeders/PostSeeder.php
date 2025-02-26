@@ -25,7 +25,7 @@ class PostSeeder extends Seeder
                 'title'       => $faker->sentence(4),
                 'slug'        => $faker->slug,
                 'description' => $faker->paragraph,
-                'user_id'     => rand(3, 12),
+                'user_id'     => rand(3, 5),
                 'created_at'  => now(),
                 'updated_at'  => now()
             ],
@@ -33,7 +33,7 @@ class PostSeeder extends Seeder
                 'title'       => $faker->sentence(4),
                 'slug'        => $faker->slug,
                 'description' => $faker->paragraph,
-                'user_id'     => rand(1, 12),
+                'user_id'     => rand(1,4),
                 'created_at'  => now(),
                 'updated_at'  => now()
             ],
