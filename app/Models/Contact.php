@@ -8,8 +8,12 @@ class Contact extends Model
 {
     public $timestamps = false;
 
+    // public function student(){
+    //     return $this->belongsTo(Student::class);
+    // }
+
     public function student(){
-        return $this->belongsTo(Student::class);
+        return $this->belongsToMany (Contact::class,'address');
     }
     protected $guarded = [];
 }

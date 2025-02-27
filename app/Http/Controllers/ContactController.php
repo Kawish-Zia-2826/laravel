@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -12,7 +13,22 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return Contact::with('student')->where('id',1)->get();
+        // return Contact::withCount('student')->get();
+        // $contact = Contact::withCount('student')->get();
+        // $contact = Contact::with('student')->find(1);
+        // return  Contact::with('student')->where('city','LIKE','g%')->withHas('student',function($q){
+        //     $q->where('age','>',20);
+        // })->get();
+
+        // $student = Student::where('name','Lawrence Yost')->get();
+        // $contact = Contact::whereBelongsTo($student)->get();
+        // return $contact;
+        // return $contact;
+        // $contact->student;
+        // return $contact;
+        $contact = Contact::find(10);
+        return $contact->student  ;
+
     }
 
     /**
@@ -20,18 +36,13 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $create  = Contact::create([
-            'phone'=>'32143578',
-            'city'=>'karachi',
-            'student_id'=>26
-            
-            
-        ]);
-        $create->student()->create([
-            
-    'name'=>'"kawish zia"',
-            'age'=>22
-        ]);
+       $student = Student::find(2);
+       $student->contact()->create(
+        [
+                'phone'=>'12345',
+                'city'=>'karachi'
+        ]
+        );
     }
 
     /**

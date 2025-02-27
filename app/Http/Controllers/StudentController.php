@@ -12,7 +12,25 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::with('contact')->where('id',1)->get();
+        // return Student::has('contact','>=',2)->with('contact')->get();
+        // return Student::select('name','age')->withCount('contact')->get();
+        // $user  =  Student::find(1);
+        //  $user->contact;
+        //  return $user;
+
+        $student = Student::get();
+        // return $student;
+        // foreach ($student->contact as $value) {
+        //     echo $value->city . "<br>";
+        // }
+
+        foreach ($student as  $value) {
+            echo "the user name is " .$value->name . "<br>";
+             foreach ($value->contact as $value) {
+            echo  "the user city is ". $value->city . "<br>";
+        }
+        echo "<hr>";
+        }
     }
 
     /**
@@ -20,17 +38,19 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $create  = Student::create([
-            'name'=>'"kawish zia"',
-            'age'=>22
+        // $create  = Student::create([
+        //     'name'=>'"kawish zia"',
+        //     'age'=>22
             
-        ]);
-        $create->contact()->create([
-            'phone'=>'32143578',
-            'city'=>'karachi',
-            'student_id'=>26
+        // ]);
+        // $create->contact()->create([
+        //     'phone'=>'32143578',
+        //     'city'=>'karachi',
+        //     'student_id'=>26
     
-        ]);
+        // ]);
+        $student  = Student::find(12);
+        $student->contact()->sync([12,13]);
     }
 
     /**
