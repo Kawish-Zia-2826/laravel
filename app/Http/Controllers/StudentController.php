@@ -12,7 +12,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        // $user  = Student::with('contact')/
+        return Student::with('contact')->where('id',1)->get();
     }
 
     /**
@@ -20,7 +20,17 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $create  = Student::create([
+            'name'=>'"kawish zia"',
+            'age'=>22
+            
+        ]);
+        $create->contact()->create([
+            'phone'=>'32143578',
+            'city'=>'karachi',
+            'student_id'=>26
+    
+        ]);
     }
 
     /**

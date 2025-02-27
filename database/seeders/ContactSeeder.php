@@ -24,6 +24,7 @@ class ContactSeeder extends Seeder
                'student_id' => $studentId++, // ✅ Incrementing student ID
            ]
            );
+           
        }
     }
 }

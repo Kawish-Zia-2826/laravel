@@ -16,6 +16,7 @@ class StudentSeeder extends Seeder
     {
         $faker   = Faker::create();
 
+       for ($i=0; $i < 25; $i++) { 
         Student::create(
             [
                 'name' => $faker->name(),
@@ -23,6 +24,7 @@ class StudentSeeder extends Seeder
             ]
             
             );
+       }
       
     }
 }

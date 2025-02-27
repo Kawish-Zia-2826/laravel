@@ -10,4 +10,8 @@ class Student extends Model
     public function contact(){
         return $this->hasOne(Contact::class);
     }
+
+    // protected $table = 'contacts';
+    protected $guarded = [];
+    // protected $fillable  = ['phone','name','city']; 
 }
