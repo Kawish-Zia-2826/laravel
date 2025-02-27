@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             // $table->timestamps();
-            $table->integer('phone');
-            $table->city('agra');
+            $table->string('phone',30);
+            $table->string('city');
             $table->foreignId('student_id')->references('id')->on('students');
         });
     }

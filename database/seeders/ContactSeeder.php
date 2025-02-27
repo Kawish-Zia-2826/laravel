@@ -14,11 +14,16 @@ class ContactSeeder extends Seeder
      */
     public function run(): void
     {
+        static $studentId = 1; 
         $faker  = Faker::create();
+       for ($i=0; $i < 25 ; $i++) { 
         Contact::create(
             [
-                'phone'=>$faker->phoneNumber
-            ]
-            );
+               'city' => $faker->city(),
+               'phone' => $faker->phoneNumber(),
+               'student_id' => $studentId++, // ✅ Incrementing student ID
+           ]
+           );
+       }
     }
 }
