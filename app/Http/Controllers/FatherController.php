@@ -11,7 +11,10 @@ class FatherController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
+        $father =  Father::with('many_children')->with('many_mother')->find('1');
+            return $father;
     //    $users =  Father::with('mother')->with('children')->get();
     //     foreach ($users as  $user) {
     //         echo "the father name is  "  . $user->Father_name . "<br>";

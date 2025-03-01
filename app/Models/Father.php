@@ -22,4 +22,12 @@ class Father extends Model
     public function mother_name(){
             return $this->hasMany(Mother::class,'Husband','id');
     }
+
+    public function many_children(){
+        return $this->hasManyThrough(Children::class,Mother::class,'Husband','Mother_name','id','id');
+    }
+
+    public function many_mother(){
+        return $this->hasMany(Mother::class,'Husband','id');
+    }
 }

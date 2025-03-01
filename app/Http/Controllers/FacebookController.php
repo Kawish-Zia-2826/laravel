@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mother;
+use App\Models\Facebook;
 use Illuminate\Http\Request;
 
-class MotherController extends Controller
+class FacebookController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-     $mother = Mother::with('children')->with('husband')->find(2);
-     return $mother;   
+        //
     }
 
     /**
@@ -21,9 +20,11 @@ class MotherController extends Controller
      */
     public function create()
     {
-        Mother::create([
-                'Mother_name'=>'fatima 2',
-                'Husband'=>10 
+        $facebook = Facebook::create([
+                'facbook_name'=>"facebook2"
+        ]);
+        $facebook->image()->create([
+            'URL'=>'facbool/image1.jpg'
         ]);
     }
 
