@@ -11,6 +11,6 @@ class Facebook extends Model
 
 
     public function image(){
-        return $this->morphOne(Image::class,"imagible");
+        return $this->morphMany(Image::class,"imagible");
     }
 }

@@ -2,27 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Google;
+use App\Models\Jame;
 use Illuminate\Http\Request;
 
-class GoogleController extends Controller
+class JameController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    // $google =   Google::with('oldest_image')->find(1);
-    $google =   Google::find(1);
-    // return $google;
-    // echo "owener is " .$google->google_name;
-    // echo "<br>";
-    // foreach ($google->image as  $value) {
-    //    echo "user post image is" . $value->URL . "<br>";
-    // }
-      return  $google->latest_image;
-
-
+        //
     }
 
     /**
@@ -30,11 +20,19 @@ class GoogleController extends Controller
      */
     public function create()
     {
-        $google  = Google::find(1);
-
-            $google->image()->create([
-                    'URL'=>"google/image3.jpg"
-            ]);
+        // Jame::create([
+        //     'json'=>[
+        //         'name'=>'jame',
+        //         'age'=>'20'
+        //     ]
+        //     ]);
+        $jam = Jame::find(1);
+        $metaData = $jam->json; // JSON field ko array me convert karega
+        
+        $metaData['name'] = "jam 2"; // Name update karna
+        
+        $jam->json = $metaData; // Wapis JSON assign karna
+        $jam->save(); // Save to database
     }
 
     /**

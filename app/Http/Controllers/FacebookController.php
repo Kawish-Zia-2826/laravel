@@ -20,9 +20,7 @@ class FacebookController extends Controller
      */
     public function create()
     {
-        $facebook = Facebook::create([
-                'facbook_name'=>"facebook2"
-        ]);
+        $facebook = Facebook::find(2);
         $facebook->image()->create([
             'URL'=>'facbool/image1.jpg'
         ]);

@@ -2,27 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Google;
+use App\Models\Makanik;
 use Illuminate\Http\Request;
 
-class GoogleController extends Controller
+class MakanikController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    // $google =   Google::with('oldest_image')->find(1);
-    $google =   Google::find(1);
-    // return $google;
-    // echo "owener is " .$google->google_name;
-    // echo "<br>";
-    // foreach ($google->image as  $value) {
-    //    echo "user post image is" . $value->URL . "<br>";
-    // }
-      return  $google->latest_image;
-
-
+        return Makanik::with(['car:car_name','bike'])->get();
     }
 
     /**
@@ -30,11 +20,7 @@ class GoogleController extends Controller
      */
     public function create()
     {
-        $google  = Google::find(1);
-
-            $google->image()->create([
-                    'URL'=>"google/image3.jpg"
-            ]);
+        //
     }
 
     /**

@@ -2,27 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Google;
+use App\Models\Json;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class GoogleController extends Controller
+class JsonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    // $google =   Google::with('oldest_image')->find(1);
-    $google =   Google::find(1);
-    // return $google;
-    // echo "owener is " .$google->google_name;
-    // echo "<br>";
-    // foreach ($google->image as  $value) {
-    //    echo "user post image is" . $value->URL . "<br>";
-    // }
-      return  $google->latest_image;
-
-
+       return Json::whereJsonLength('meta_data->name',1)->get();
     }
 
     /**
@@ -30,11 +21,15 @@ class GoogleController extends Controller
      */
     public function create()
     {
-        $google  = Google::find(1);
+        // Json::where('id',2)->update([
+        //   'meta_data->address->city'=>"city of light"
+        // ]);
 
-            $google->image()->create([
-                    'URL'=>"google/image3.jpg"
-            ]);
+        $json = Json::find(2);
+        // $json->meta_data['name'] = "jawad zia";
+        
+        $json->meta_data = collect($json->meta_data)->forget('class');
+        $json->save();
     }
 
     /**

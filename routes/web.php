@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BikeController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
@@ -8,14 +10,22 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\FatherController;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HabitController;
+use App\Http\Controllers\InstagramController;
+use App\Http\Controllers\JameController;
+use App\Http\Controllers\JsonController;
+use App\Http\Controllers\MakanikController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\VideoController;
 use App\Models\Contact;
 use App\Models\Facebook;
 use App\Models\Father;
 use App\Models\Habit;
+use App\Models\Instagram;
 use App\Models\Student;
 
 Route::get('/', function () {
@@ -32,3 +42,12 @@ Route::resource('father',FatherController::class);
 Route::resource('mother',MotherController::class);
 Route::resource('google',GoogleController::class);
 Route::resource('facebook',FacebookController::class);
+Route::resource('insta',InstagramController::class);
+Route::resource('feed',FeedController::class);
+Route::resource('vid',VideoController::class);
+Route::resource('tag',TagController::class);
+Route::resource('bike',BikeController::class);
+Route::resource('car',CarController::class);
+Route::resource('makanik',MakanikController::class);
+Route::resource('json',JsonController::class);
+Route::resource('jam',JameController::class);

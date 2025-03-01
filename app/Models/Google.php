@@ -10,7 +10,17 @@ class Google extends Model
     public $timestamps =false;
     protected $guarded = [];
 
-    public function image(){
-        return $this->morphOne(Image::class,'imagible');
+    // public function image(){
+    //     // return $this->morphOne(Image::class,'imagible');
+    //     return $this->morphMany(Image::class,'imagible');
+    // }
+
+    public function latest_image(){
+        // return $this->morphOne(Image::class,'imagible');
+        return $this->morphOne(Image::class,'imagible')->latestOfMany();
+    }
+    public function oldest_image(){
+        // return $this->morphOne(Image::class,'imagible');
+        return $this->morphOne(Image::class,'imagible')->oldestOfMany();
     }
 }
