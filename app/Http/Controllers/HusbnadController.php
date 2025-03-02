@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Wife;
 use App\Models\Husband;
+use App\Models\Scopes\UserScope;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class HusbnadController extends Controller
      */
     public function index()
     {
-        return Husband::with('wife')->find(4)->get();
+$husband =  Husband::all();
+return $husband->load('wife');
+
+    
     }
 
     /**

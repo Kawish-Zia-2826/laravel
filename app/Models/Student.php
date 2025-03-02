@@ -18,3 +18,4 @@ class Student extends Model
     protected $guarded = [];
     // protected $fillable  = ['phone','name','city']; 
 }
+    
