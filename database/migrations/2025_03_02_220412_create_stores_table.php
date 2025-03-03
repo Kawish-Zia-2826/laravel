@@ -11,17 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laptops', function (Blueprint $table) {
+        Schema::create('stores', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('model');
-            $table->string('status')->default('active'); 
-            $table->string('avilable');
-            $table->foreignId('customer_id')->references('id')->on('customers')->cascadeOnDelete();
-            // 'active' ya 'inactive'
+            $table->string('file_name');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laptops');
+        Schema::dropIfExists('stores');
     }
 };
