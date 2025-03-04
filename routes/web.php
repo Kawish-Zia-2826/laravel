@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessorController;
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactController;
@@ -22,10 +23,13 @@ use App\Http\Controllers\MisController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\SirController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\storeController as ControllersStoreController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\WifeController;
+use App\Models\Accessor;
 use App\Models\Contact;
 use App\Models\Facebook;
 use App\Models\Father;
@@ -60,4 +64,6 @@ Route::resource('hus',HusbnadController::class);
 Route::resource('wife',WifeController::class);
 Route::resource('sir',SirController::class);
 Route::resource('miss',MisController::class);
-Route::resource('store',StoreController::class);
+Route::resource('store',storeController::class);
+// Route::resource('upload',UploadController::class);
+Route::resource('accessor',AccessorController::class);

@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Store;
+use App\Models\Accessor;
 use Illuminate\Http\Request;
 
-class storeController extends Controller
+class AccessorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $user = Store::get();
-        return view('store.index', compact('user'));
+        //
     }
 
     /**
@@ -21,7 +20,13 @@ class storeController extends Controller
      */
     public function create()
     {
-        //
+        Accessor::create([
+          'user_name'=>'kDSFwish',
+          'email'=>'kawishASD@gmail.com',
+          'salary'=>3213,
+          'dob'=>now(),
+          'password'=>123456  
+        ]);
     }
 
     /**
