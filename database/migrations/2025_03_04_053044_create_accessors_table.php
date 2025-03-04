@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('accessors', function (Blueprint $table) {
             $table->id();
             $table->string('user_name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('salary');
             $table->date('dob');
             $table->string('password');

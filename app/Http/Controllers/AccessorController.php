@@ -12,7 +12,8 @@ class AccessorController extends Controller
      */
     public function index()
     {
-        //
+        $accessor = Accessor::get();
+        return $accessor;     
     }
 
     /**
@@ -21,7 +22,7 @@ class AccessorController extends Controller
     public function create()
     {
         Accessor::create([
-          'user_name'=>'kDSFwish',
+          'user_name'=>'aDSFwish',
           'email'=>'kawishASD@gmail.com',
           'salary'=>3213,
           'dob'=>now(),

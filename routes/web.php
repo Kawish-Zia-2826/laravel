@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccessorController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactController;
@@ -67,3 +68,8 @@ Route::resource('miss',MisController::class);
 Route::resource('store',storeController::class);
 // Route::resource('upload',UploadController::class);
 Route::resource('accessor',AccessorController::class);
+
+
+Route::view('register','register')->name('register');
+Route::view('login','login')->name('login');
+Route::post('registerSave',[AuthController::class],'register')->name('registerSave');
