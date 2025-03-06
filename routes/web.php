@@ -30,6 +30,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\WifeController;
+use App\Http\Middleware\ValidUser;
 use App\Models\Accessor;
 use App\Models\Contact;
 use App\Models\Facebook;
@@ -71,6 +72,37 @@ Route::resource('accessor',AccessorController::class);
 
 
 Route::view('register','register')->name('register');
-Route::view('login','login')->name('login');
+Route::view('login','login')->name('login')->middleware(ValidUser::class);
 
-Route::post('registerSave', [AuthController::class, 'registerSave'])->name('registerSave');
+Route::post('registerSave', [UserController::class, 'registerSave'])->name('registerSave');
+
+Route::get('/session',function(){
+    $sesion = session()->all();
+        echo "<pre>";
+        print_r($sesion);
+        echo "</pre>";
+//     $user = session('user');
+// echo $user; // Output: Ali
+// if (!session()->has('user')) {
+//     echo "User logged in!";
+// }
+// session(['name'=>'kawish']);
+session()->regenerate();
+});
+
+
+Route::get('session/create',function(){
+    // session(['user' => 'Ali']);  
+    session()->forget('user'); 
+    
+});
+
+
+Route::get('/flash',function(){
+    session()->flash('message','this is flassad h message');
+    return redirect('/show');
+});
+Route::get('/show',function(){
+    return session('message', 'No message found!');
+});
+ 
