@@ -72,4 +72,5 @@ Route::resource('accessor',AccessorController::class);
 
 Route::view('register','register')->name('register');
 Route::view('login','login')->name('login');
-Route::post('registerSave',[AuthController::class],'register')->name('registerSave');
+
+Route::post('registerSave', [AuthController::class, 'registerSave'])->name('registerSave');
